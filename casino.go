@@ -69,8 +69,8 @@ func diceRoll(){
 func rps(){
 	fmt.Println("")
 
-	reasons := make([]int, 0)
-	reasons = append(reasons,
+	rps := make([]int, 0)
+	rps = append(rps,
 		1,
 		2,
 		3,
@@ -81,7 +81,7 @@ func rps(){
 	var usrPick int
 	var usrPrint string
 	var compPrint string
-	var compPick int = reasons[rand.Intn(len(reasons))]
+	var compPick int = rps[rand.Intn(len(rps))]
 
 	var usrBet int
 	var usrWin int
