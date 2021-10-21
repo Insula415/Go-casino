@@ -52,9 +52,10 @@ func diceRoll(){
 		fmt.Printf("You won! +%v coins", usrWin)
 		usrCoins += usrWin
 		if firstNum == scdNum {
+			fmt.Println("")
 			fmt.Println("You rolled double!")
-			fmt.Println("+10 coins")
-			usrCoins += 10
+			fmt.Println("+100 coins")
+			usrCoins += 100
 		}
 	} else if usrFinal < casFinal {
 		fmt.Printf("You lost! -%v coins", usrBet)
@@ -245,6 +246,22 @@ func gameOver() {
 	fmt.Println("Thank you for playing")
 }
 
+func gameStats(usrCoins int) {
+	fmt.Printf("You left the casino with %v coins", usrCoins)
+    fmt.Println("")
+    if usrCoins <= 10 {
+    	fmt.Println("You had a bad night, didn't you?")
+    } else if usrCoins <= 300 {
+    	fmt.Println("You can do better than that, join us again sometime!")
+    } else if usrCoins <= 500 {
+    	fmt.Println("You did pretty well, good job")
+    } else if usrCoins <= 1000 {
+    	fmt.Println("It's suspicious how well you performed...")
+    } else {
+    	fmt.Println("Good bye!")
+    }
+}
+
 func casino(usrCoins int) {
 	fmt.Println("")
 
@@ -261,6 +278,7 @@ func casino(usrCoins int) {
 		
 	 	if opt == 0 {
 	 	    fmt.Println("Thank you for visiting!")
+	 	    gameStats(usrCoins)
 	 	} else if opt == 1 {
 			fmt.Println("Welcome to number guesser!")
 		    time.Sleep(1 * time.Second)
