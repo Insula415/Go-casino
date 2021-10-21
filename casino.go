@@ -237,29 +237,45 @@ func main() {
 	casino(usrCoins)
 }
 
+func gameOver() {
+	fmt.Println("You have ran out of coins")
+	time.Sleep(1 * time.Second)
+	fmt.Println("You have been kicked out of the casino")
+	time.Sleep(1 * time.Second)
+	fmt.Println("Thank you for playing")
+}
+
 func casino(usrCoins int) {
 	fmt.Println("")
 
  	var opt int
 
- 	fmt.Printf("Your current coins are %v",usrCoins)
- 	fmt.Println("")
- 	fmt.Println("\n 0. Exit \n 1. Number guesser \n 2. Rock paper scissors \n 3. Dice roll")
- 	fmt.Print("\n What game would you like to play? ")
-	fmt.Scanln(&opt)
-	
- 	if opt == 0 {
- 	    fmt.Println("Thank you for visiting!")
- 	} else if opt == 1 {
-		fmt.Println("Welcome to number guesser!")
-	    time.Sleep(1 * time.Second)
-	    fmt.Println("The rules are simple; guess the number between 1-100, you win! Don't? you lose!")
-	    time.Sleep(1 * time.Second)
-	    fmt.Println("---------- Let's start shall we? ---------")
- 	    numGame(usrCoins, 0)
- 	} else if opt == 2 {
- 		rps()
- 	} else if opt == 3 {
- 		diceRoll()
+ 	if usrCoins <= 0 {
+ 		gameOver()
+ 	} else {
+	 	fmt.Printf("Your current coins are %v",usrCoins)
+	 	fmt.Println("")
+	 	fmt.Println("\n 0. Exit \n 1. Number guesser \n 2. Rock paper scissors \n 3. Dice roll")
+	 	fmt.Print("\n What game would you like to play? ")
+		fmt.Scanln(&opt)
+		
+	 	if opt == 0 {
+	 	    fmt.Println("Thank you for visiting!")
+	 	} else if opt == 1 {
+			fmt.Println("Welcome to number guesser!")
+		    time.Sleep(1 * time.Second)
+		    fmt.Println("The rules are simple; guess the number between 1-100, you win! Don't? you lose!")
+		    time.Sleep(1 * time.Second)
+		    fmt.Println("---------- Let's start shall we? ---------")
+	 	    numGame(usrCoins, 0)
+	 	} else if opt == 2 {
+	 		rps()
+	 	} else if opt == 3 {
+	 		diceRoll()
+	 	} else {
+	 		fmt.Println("")
+	 		fmt.Println("Invalid input - try again")
+	 		casino(usrCoins)
+	 	}
  	}	
 }
