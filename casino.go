@@ -33,7 +33,7 @@ func diceRoll(){
 		fmt.Println("")
 		fmt.Println("You can only bet the coins you have")
 		fmt.Printf("You have %v coins \n",usrCoins)
-		casino()
+		casino(usrCoins)
 	} else {
 		usrWin = usrBet * 2
 	}
@@ -63,7 +63,7 @@ func diceRoll(){
 		fmt.Printf("It's a draw! You get back your bet of %v", usrBet)
 	}
 
-	casino()
+	casino(usrCoins)
 }
 
 func rps(){
@@ -93,7 +93,7 @@ func rps(){
 		fmt.Println("")
 		fmt.Println("You can only bet the coins you have")
 		fmt.Printf("You have %v coins \n",usrCoins)
-		casino()
+		casino(usrCoins)
 	} else {
 		usrWin = usrBet * 2
 	}
@@ -112,7 +112,7 @@ func rps(){
 		usrPrint = "scissors"
 	default:
 		fmt.Println("Invalid option")
-		casino()
+		casino(usrCoins)
 	}
 
 	switch(compPick) {
@@ -133,22 +133,22 @@ func rps(){
 	if usrPick == 1 && compPick == 2 {
 		fmt.Printf("You win! +%v coins", usrWin)
 		usrCoins += usrWin
-		casino()
+		casino(usrCoins)
 	} else if usrPick == 3 && compPick == 2 {
 		fmt.Printf("You win! +%v coins", usrWin)
 		usrCoins += usrWin
-		casino()
+		casino(usrCoins)
 	} else if usrPick == 2 && compPick == 1 {
 		fmt.Printf("You win! +%v coins", usrWin)
 		usrCoins += usrWin
-		casino()
+		casino(usrCoins)
 	} else if usrPick == compPick {
 		fmt.Printf("It's a draw! You get back your bet of %v coins", usrBet)
-		casino()
+		casino(usrCoins)
 	} else {
 		fmt.Printf("You lose! -%v coins", usrBet)
 		usrCoins -= usrBet
-		casino()
+		casino(usrCoins)
 	}
 }
 
@@ -168,7 +168,7 @@ func numGame(usrCoins int, streak int) {
 		fmt.Println("")
 		fmt.Println("You can only bet the coins you have")
 		fmt.Printf("You have %v coins \n",usrCoins)
-		casino()
+		casino(usrCoins)
 	} else {
 		usrWin = usrBet * 2
 	}
@@ -198,7 +198,7 @@ func numGame(usrCoins int, streak int) {
 	        	fmt.Println("Thank you for playing")
 	        	fmt.Println("--------------------")
 	        	guess = 2000
-	        	casino()
+	        	casino(usrCoins)
 	        } else {
 	        	numGame(usrCoins, streak)
 	        }
@@ -212,6 +212,7 @@ func numGame(usrCoins int, streak int) {
     	guess += 1
     	if guess >= 5 {
 			fmt.Printf("You lost! -%v coins", usrBet)
+			usrCoins -= usrBet
 			fmt.Println("")
 			fmt.Println("")
     		fmt.Println("--------------------")
@@ -220,7 +221,7 @@ func numGame(usrCoins int, streak int) {
 	        fmt.Println("Final coins:",usrCoins)
     		fmt.Println("Thank you for playing")
     		fmt.Println("--------------------")
-    		casino()
+    		casino(usrCoins)
     	}
     }
 
@@ -233,10 +234,10 @@ func randInt(min, max int) int {
 
 func main() {
  	fmt.Println("Welcome to Ciaran's Casino!")
-	casino()
+	casino(usrCoins)
 }
 
-func casino() {
+func casino(usrCoins int) {
 	fmt.Println("")
 
  	var opt int
