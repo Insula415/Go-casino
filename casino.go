@@ -234,7 +234,7 @@ func randInt(min, max int) int {
 }
 
 func main() {
- 	fmt.Println("Welcome to Ciaran's Casino!")
+ 	fmt.Println("Welcome to The Casino!")
 	casino(usrCoins)
 }
 
