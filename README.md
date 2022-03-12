@@ -1,7 +1,7 @@
 # Go-casino
 Simple casino made using 100% Golang
 
-<img src="main.PNG" />
+<img src="Capture.PNG" />
 
 <h3> Number guesser </h3>
 <img src="num.PNG" />
